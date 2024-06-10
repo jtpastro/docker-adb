@@ -20,7 +20,7 @@ ENV PATH "${PATH}:${ANDROID_HOME}/bin"
 
 RUN dpkg --add-architecture i386 && \
     apt-get update -yqq && \
-    apt-get install -y libc6:i386 libstdc++6:i386 zlib1g:i386 openjdk-${OPENJDK_VERSION}-jdk wget unzip && \
+    apt-get install -y --no-install-recommends libc6:i386 libstdc++6:i386 zlib1g:i386 openjdk-${OPENJDK_VERSION}-jdk wget unzip && \
     apt-get clean
 
 RUN groupadd android && useradd -d /opt/android-sdk-linux -g android android
