@@ -32,6 +32,8 @@ RUN wget -q https://dl.google.com/android/repository/commandlinetools-linux-${AN
 	mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/tools && \
 	rm *tools*linux*.zip
 
+RUN apt-get remove -y wget unzip
+
 RUN mkdir /root/.android/ && \
     touch /root/.android/repositories.cfg && \
     yes Y | sdkmanager --licenses && \ 
